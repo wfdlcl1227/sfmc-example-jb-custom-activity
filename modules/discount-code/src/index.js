@@ -96,11 +96,12 @@ function onDoneButtonClick() {
 
 
     const templateId = document.getElementById('message-template');
-    const option = select.options[select.selectedIndex];
+    const option = templateId.options[templateId.selectedIndex];
 
 
     activity.arguments.execute.inArguments = [{
        // discount: option.value,
+       "templateid":option.value,
        "emailAddress": "{{Contact.Default.Email}}",
        "member": "Mr Chris",
        "Point": "1000"
