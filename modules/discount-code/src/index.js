@@ -103,7 +103,7 @@ function onDoneButtonClick() {
        // discount: option.value,
        "templateid":option.value,
        "emailAddress": "{{Contact.Default.Email}}",
-       "member": "Mr Chris",
+       "member": "{{Contact.Attribute.\"Chris Test Sendable DE\".\"First Name\"}}",
        "Point": "1000"
     }];
 
