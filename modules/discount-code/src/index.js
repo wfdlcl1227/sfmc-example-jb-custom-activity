@@ -100,12 +100,11 @@ function onDoneButtonClick() {
 
 
     activity.arguments.execute.inArguments = [{
-        // discount: option.value,
-        "templateid":option.value,
-        //"emailAddress": "{{Contact.Default.Email}}",
-        //"member": "{{Contact.Attribute.\"Chris Test Sendable DE\".\"First Name\"}}",
-        "Point": "999",
-        "xxx": "123"
+       // discount: option.value,
+       "templateid":option.value,
+       "emailAddress": "{{Contact.Default.Email}}",
+       "member": "{{Contact.Attribute.\"Chris Test Sendable DE\".\"First Name\"}}",
+       "Point": "999"
     }];
 
     // you can set the name that appears below the activity with the name property
