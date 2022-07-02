@@ -96,19 +96,31 @@ function onDoneButtonClick() {
 
 
     const templateId = document.getElementById('message-template');
-    const option = templateId.options[templateId.selectedIndex];
+    const templateIdOption = templateId.options[templateId.selectedIndex];
 
+    const Param1DE = document.getElementById('Param1-DE');
+    const Param1DEOption = Param1DE.options[Param1DE.selectedIndex];
+
+    const Param1Field = document.getElementById('Param1-Field');
+    const Param1FieldOption = Param1Field.options[Param1Field.selectedIndex];
+
+    const Param2DE = document.getElementById('Param2-DE');
+    const Param2DEOption = Param2DE.options[Param2DE.selectedIndex];
+
+    const Param2Field = document.getElementById('Param2-Field');
+    const Param2FieldOption = Param2Field.options[Param2Field.selectedIndex];
 
     activity.arguments.execute.inArguments = [{
        // discount: option.value,
-       "templateid":option.value,
+       "templateId":templateIdOption.value,
+       "templateName":templateIdOption.label,
        "emailAddress": "{{Contact.Default.Email}}",
-       "member": "{{Contact.Attribute.\"Chris Test Sendable DE\".\"First Name\"}}",
-       "Point": "999"
+       "param1": "{{Contact.Attribute.\""+Param1DEOption.value + "\".\"" + Param1FieldOption.value + "\"}}",
+       "param2": "{{Contact.Attribute.\""+Param2DEOption.value + "\".\"" + Param2FieldOption.value + "\"}}",
     }];
 
     // you can set the name that appears below the activity with the name property
-    activity.name = `Issue ${activity.arguments.execute.inArguments[0].discount}% Code`;
+    activity.name = `Send ${activity.arguments.execute.inArguments[0].templateName}% Message`;
 
     console.log('------------ triggering:updateActivity({obj}) ----------------');
     console.log('Sending message back to updateActivity');
@@ -196,7 +208,7 @@ function setupExampleTestHarness() {
     jb.ready = function() {
         jbSession.trigger('initActivity', {
             name: '',
-            key: 'EXAMPLE-1',
+            key: 'EXamPLE-1',
             metaData: {},
             configurationArguments: {},
             arguments: {
